@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1"]
+[sub_resource type="StyleBoxFlat" id="CardStyle"]
+bg_color = Color(0.97, 0.98, 1, 0.96)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_left = 16
+corner_radius_bottom_right = 16
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1")
+[node name="Card" type="PanelContainer" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 550.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("CardStyle")
+[node name="Margin" type="MarginContainer" parent="Card"]
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 14
+[node name="Lines" type="VBoxContainer" parent="Card/Margin"]
+[node name="Title" type="Label" parent="Card/Margin/Lines"]
+theme_override_colors/font_color = Color(0.19, 0.16, 0.33, 1)
+theme_override_font_sizes/font_size = 28
+text = "PLAYTOPIA  /  My first house"
+[node name="Controls" type="Label" parent="Card/Margin/Lines"]
+theme_override_colors/font_color = Color(0.22, 0.25, 0.32, 1)
+theme_override_font_sizes/font_size = 18
+text = "WASD: move   ·   Space: jump   ·   R: return home"
+[node name="Prompt" type="Label" parent="Card/Margin/Lines"]
+theme_override_colors/font_color = Color(0.08, 0.35, 0.45, 1)
+theme_override_font_sizes/font_size = 19
+text = "Explore the yard. Walk up to the blue door."

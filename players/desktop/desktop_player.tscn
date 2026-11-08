@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://players/desktop/desktop_player.gd" id="1"]
+[ext_resource type="Script" path="res://players/desktop/desktop_input.gd" id="2"]
+[sub_resource type="CapsuleShape3D" id="BodyShape"]
+radius = 0.35
+height = 1.6
+[sub_resource type="CapsuleMesh" id="BodyMesh"]
+radius = 0.35
+height = 1.6
+[sub_resource type="StandardMaterial3D" id="Purple"]
+albedo_color = Color(0.55, 0.32, 0.79, 1)
+[sub_resource type="SphereMesh" id="FaceMesh"]
+radius = 0.2
+height = 0.4
+[sub_resource type="StandardMaterial3D" id="Face"]
+albedo_color = Color(1, 0.84, 0.57, 1)
+
+[node name="DesktopPlayer" type="CharacterBody3D"]
+script = ExtResource("1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.8, 0)
+shape = SubResource("BodyShape")
+[node name="Avatar" type="Node3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="Avatar"]
+position = Vector3(0, 0.8, 0)
+mesh = SubResource("BodyMesh")
+material_override = SubResource("Purple")
+[node name="Face" type="MeshInstance3D" parent="Avatar"]
+position = Vector3(0, 1.2, 0.25)
+mesh = SubResource("FaceMesh")
+material_override = SubResource("Face")
+[node name="DesktopInput" type="Node" parent="."]
+script = ExtResource("2")
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 8, 11)
+current = true
+fov = 65.0
+near = 0.1
+far = 100.0

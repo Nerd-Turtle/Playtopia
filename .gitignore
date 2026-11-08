@@ -1,0 +1,21 @@
+# Godot 4 generated cache (keep source .uid and .import sidecars).
+.godot/
+*.translation
+# Builds and local export credentials.
+builds/
+exports/
+export_credentials.cfg
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+.env
+.env.*
+!.env.example
+# Machine-local editor/OS files.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

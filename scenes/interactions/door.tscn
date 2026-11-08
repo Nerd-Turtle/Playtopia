@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/interactions/door.gd" id="1"]
+[sub_resource type="BoxMesh" id="PanelMesh"]
+size = Vector3(1.8, 2.5, 0.16)
+[sub_resource type="StandardMaterial3D" id="Paint"]
+albedo_color = Color(0.12, 0.52, 0.7, 1)
+roughness = 0.9
+[sub_resource type="BoxShape3D" id="PanelShape"]
+size = Vector3(1.8, 2.5, 0.16)
+[sub_resource type="SphereMesh" id="Knob"]
+radius = 0.08
+height = 0.16
+
+[node name="Door" type="Node3D" groups=["interactables"]]
+script = ExtResource("1")
+[node name="Hinge" type="Node3D" parent="."]
+position = Vector3(-0.9, 0, 0)
+[node name="Panel" type="StaticBody3D" parent="Hinge"]
+position = Vector3(0.9, 1.25, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Panel"]
+mesh = SubResource("PanelMesh")
+material_override = SubResource("Paint")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/Panel"]
+shape = SubResource("PanelShape")
+[node name="Handle" type="MeshInstance3D" parent="Hinge/Panel"]
+position = Vector3(0.62, 0, 0.15)
+mesh = SubResource("Knob")
